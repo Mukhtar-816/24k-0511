@@ -1,0 +1,22 @@
+START
+
+//INPUT 
+READ NUMBER;
+LET i = 1;
+
+
+//CHECK IF IT IS PRIME OR NOT
+
+LOOP ( i TO NUMBER ){
+    IF (i != 1 || i != NUMBER){
+        IF (NUMBER % i == 0){
+            RETURN NUMBER IS NOT PRIME;
+        }
+        ELSE {
+            RETURN NUMBER IS PRIME!
+        };
+    };
+};
+
+//ENDING
+END
