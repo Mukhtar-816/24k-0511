@@ -3,25 +3,27 @@ START
 //INPUT 
 INPUT NUM1, NUM2;
 
+//CONSTANTS
+let i = 1;
+let GCD = 1;
+
 
 //CALCULATING GCD
 IF ( NUM1 > NUM2 ){                                // CHECK WHICH NUMBER IS BIGGER TO DIVIDE CORRECTLY
-    IF ( NUM1 % NUM2 == 0){
-        RETURN GCD IS NUM2;                       // SINCE REMAINDER OF TWO NUMBER IS 0 SO THE SMALLER NUMBER IS THE ONLY GCD.
+    LOOP ( i to NUM2 ){
+        IF (NUM1 % i == 0 && NUM2 % i == 0){
+            IF (i > GCD){ set GCD = i;}
+        }
+        ELSE { RETURN GCD };
     }
-    ELSE {
-        ANSWER = NUM1 % NUM2;                      // CHECK IF REMAINDER IS NON-ZERO SO THE REMAINDER WILL BE THE GCD.
-        RETURN ANSWER;
-    } 
 }
-ELSE IF ( NUM2 > NUM1 ){
-    IF ( NUM2 % NUM1 == 0){
-        RETURN GCD IS NUM1;                       // SINCE REMAINDER OF TWO NUMBER IS 0 SO THE SMALLER NUMBER IS THE ONLY GCD.
+ELSE IF ( NUM2 > NUM1 ){                                // CHECK WHICH NUMBER IS BIGGER TO DIVIDE CORRECTLY
+    LOOP ( i to NUM2 ){
+        IF (NUM2 % i == 0 && NUM1 % i == 0){
+            IF (i > GCD){ set GCD = i;}
+        }
+        ELSE { RETURN GCD };
     }
-    ELSE {
-        ANSWER = NUM2 % NUM1;                      // CHECK IF REMAINDER IS NON-ZERO SO THE REMAINDER WILL BE THE GCD.
-        RETURN ANSWER;
-    } 
 }
 ELSE {
     RETURN BOTH NUMBERS ARE EQUAL, SO THEIR GCD IS NUM1 AND NUM2 BOTH;
